@@ -104,15 +104,18 @@ class GameField:
             list_col = ['A', 'B', 'C', 'D', 'E', 'F']
             str_coord = ''.join(coord)
 
-            if str_coord[0].isdigit():
-                i = int(str_coord[0])
-            else:
-                return None
+            try:
+                if str_coord[0].isdigit():
+                    i = int(str_coord[0])
+                else:
+                    return None
 
-            if str_coord[1].isdigit():
-                j = int(str_coord[1])
-            else:
-                j = list_col.index(str_coord[1].upper()) + 1
+                if str_coord[1].isdigit():
+                    return None
+                else:
+                    j = list_col.index(str_coord[1].upper()) + 1
+            except:
+                return None
 
             str_ = self.coordinats[i - 1]
             col_ = str_[j - 1]
